@@ -1,0 +1,11 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  navbarCollapsed = true;
+  title = 'client-demo-fe';
+}
