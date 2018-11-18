@@ -1,19 +1,20 @@
 <div class="container">
+
   <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">Type</th>
         <th scope="col">Name</th>
-        <th scope="col">Column heading</th>
-        <th scope="col">Column heading</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Email</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of clientList" routerLink="/clients/{{item.id}}">
         <th scope="row">{{item.id}}</th>
         <td>{{item.name}}</td>
-        <td>Column content</td>
-        <td>Column content</td>
+        <td>{{item.phoneNumber}}</td>
+        <td>{{item.email}}</td>
       </tr>
     </tbody>
   </table>
