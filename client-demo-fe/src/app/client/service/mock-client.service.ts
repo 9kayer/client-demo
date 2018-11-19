@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-import { Client } from '../model/client';
-import { Event } from '../model/event';
+import { Client } from '../../model/client';
+import { Event } from '../../model/event';
 
 const eventList : Event[] = [
   new Event('1', 'Event name', new Date() ),
@@ -19,7 +19,7 @@ const clientList : Client[] = [
   providedIn: 'root'
 })
 
-export class ClientService {
+export class MockClientService {
 
   constructor() { }
   

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ClientService } from '../client.service';
+
 import { Client } from 'src/app/model/client';
+import { ClientService } from '../service/client.service';
 
 @Component({
   selector: 'app-client-item',
@@ -21,11 +22,15 @@ export class ClientItemComponent implements OnInit {
     this.route.params
       .subscribe(params => {
         let id:string = params['id'];
-        this.clientService.get(id)
+        this.getClient(id);
+      });
+  }
+
+  getClient( id : string){
+    this.clientService.get(id)
           .subscribe((client : Client) =>{
             this.client = client;
-          })
-      });
+          });
   }
 
 }

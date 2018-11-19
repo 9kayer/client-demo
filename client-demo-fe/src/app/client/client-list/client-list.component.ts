@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from 'src/app/model/client';
 import { ActivatedRoute } from '@angular/router';
-import { ClientService } from '../client.service';
+import { ClientService } from '../service/client.service';
 
 @Component({
   selector: 'app-client-list',
@@ -11,11 +11,16 @@ import { ClientService } from '../client.service';
 export class ClientListComponent implements OnInit {
 
   public clientList: Client[] = [];
+  private route : ActivatedRoute;
+  private clientService : ClientService;
 
   constructor(
-    private route : ActivatedRoute,
-    private clientService : ClientService
-  ) { }
+    route : ActivatedRoute,
+    clientService : ClientService
+  ) { 
+    this.route = route;
+    this.clientService = clientService;
+  }
 
   ngOnInit() {
     this.getAllClients();
