@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
-import { Client } from 'src/app/model/client';
-import { ClientService } from '../service/client.service';
+import {Client} from 'src/app/model/client';
+import {ClientService} from '../service/client.service';
 
 @Component({
   selector: 'app-client-item',
@@ -11,26 +11,27 @@ import { ClientService } from '../service/client.service';
 })
 export class ClientItemComponent implements OnInit {
 
-  client : Client;
+  client: Client;
 
   constructor(
-    private route : ActivatedRoute,
-    private clientService : ClientService
-  ) { }
+    private route: ActivatedRoute,
+    private clientService: ClientService
+  ) {
+  }
 
   ngOnInit() {
     this.route.params
       .subscribe(params => {
-        let id:string = params['id'];
+        const id: string = params['id'];
         this.getClient(id);
       });
   }
 
-  getClient( id : string){
+  getClient(id: string) {
     this.clientService.get(id)
-          .subscribe((client : Client) =>{
-            this.client = client;
-          });
+      .subscribe((client: Client) => {
+        this.client = client;
+      });
   }
 
 }

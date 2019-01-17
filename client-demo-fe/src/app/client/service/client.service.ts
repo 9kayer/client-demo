@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
 import { Client } from '../../model/client';
-import { Event } from '../../model/event';
+import { EventModel } from '../../model/event';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +14,10 @@ export class ClientService {
   baseURL = 'http://localhost:20001/api';
   clientURL = '/clients';
 
-  constructor(private http : HttpClient) { }
-  
-  get(id : string) : Observable<Client>{
-    let httpOptions = {
+  constructor(private http: HttpClient) { }
+
+  get(id: string): Observable<Client> {
+    const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
@@ -26,8 +26,8 @@ export class ClientService {
     return this.http.get<Client>(this.baseURL + this.clientURL + '/' + id, httpOptions);
   }
 
-  getAll() : Observable<Client[]> {
-    let httpOptions = {
+  getAll(): Observable<Client[]> {
+    const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
@@ -36,8 +36,8 @@ export class ClientService {
     return this.http.get<Client[]>(this.baseURL + this.clientURL, httpOptions);
   }
 
-  update(client : Client) : Observable<Object>{
-    let httpOptions = {
+  update(client: Client): Observable<Object> {
+    const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })

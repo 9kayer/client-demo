@@ -1,0 +1,76 @@
+<div class="container-fluid" id="page-wrapper">
+
+  <div class="card">
+    <div class="card-header">Details</div>
+    <div class="card-body">
+      <form [formGroup]="eventForm" class="col-lg-12" *ngIf="eventForm" (submit)="onSubmit()">
+
+        <div class="form-row mb-3">
+          <div class="col-lg-4">
+            <div class="form-row">
+              <label class="form-control-label">Id</label>
+              <p class="card-text">{{event.id}}</p>
+            </div>
+
+            <div class="form-row">
+              <label class="form-control-label">Name</label>
+              <input type="text" class="form-control" placeholder="Enter name" formControlName="name">
+            </div>
+
+            <div class="form-row">
+              <label class="form-control-label">Field</label>
+              <input type="text" class="form-control" placeholder="Select Field" formControlName="field">
+            </div>
+
+          </div>
+          <div class="col-lg-4"></div>
+
+          <div class="col-lg-4">
+            <div class="form-row">
+              <label for="startDate">Start Date</label>
+              <input id="startDate" class="form-control" formControlName="startDate" [owlDateTimeTrigger]="startDatePicker" [owlDateTime]="startDatePicker"/>
+              <owl-date-time #startDatePicker></owl-date-time>
+            </div>
+
+            <div class="form-row">
+              <label for="endDate">End Date</label>
+              <input id="endDate" class="form-control" formControlName="endDate" [owlDateTimeTrigger]="endDatePicker" [owlDateTime]="endDatePicker"/>
+              <owl-date-time #endDatePicker></owl-date-time>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="form-row mb-3">
+          <div class="col-lg-8">
+            <label class="form-control-label">Location</label>
+            <input type="text" class="form-control" placeholder="Enter Address" formControlName="location">
+          </div>
+        </div>
+
+        <div class="form-row mb-3">
+
+          <div class="col-lg-4">
+            <label class="form-control-label">City</label>
+            <input type="text" class="form-control" placeholder="Enter City" formControlName="city">
+          </div>
+
+          <div class="col-lg-4">
+            <label class="form-control-label">Country</label>
+            <input type="text" class="form-control" placeholder="Enter Country" formControlName="country">
+          </div>
+
+        </div>
+
+        <div class="form-row">
+          <div class="col-lg-12 text-right">
+            <button class="btn btn-primary btn-md px-5" type="submit">Update Event</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+</div>

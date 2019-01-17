@@ -2,20 +2,24 @@
 
   <table class="table table-hover">
     <thead>
-      <tr>
-        <th scope="col">Type</th>
-        <th scope="col">Name</th>
-        <th scope="col">Phone Number</th>
-        <th scope="col">Email</th>
-      </tr>
+    <tr>
+      <th scope="col">Type</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Email</th>
+      <th scope="col">Details</th>
+    </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of clientList" routerLink="/clients/{{item.id}}">
-        <th scope="row">{{item.id}}</th>
-        <td>{{item.name}}</td>
-        <td>{{item.phoneNumber}}</td>
-        <td>{{item.email}}</td>
-      </tr>
+    <tr *ngFor="let client of clientList">
+      <th scope="row">{{client.id}}</th>
+      <td>{{client.name}}</td>
+      <td>{{client.phoneNumber}}</td>
+      <td>{{client.email}}</td>
+      <td>
+        <i class="fas fa-search" (click)="loadClient(client.id)"></i>
+      </td>
+    </tr>
     </tbody>
   </table>
 </div>

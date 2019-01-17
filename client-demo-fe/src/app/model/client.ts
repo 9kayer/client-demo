@@ -1,6 +1,6 @@
-import { Event } from "./event";
+import { EventModel } from './event';
 
-export class Client{
+export class Client {
 
     id: string;
     name: string;
@@ -10,9 +10,9 @@ export class Client{
     address: string;
     zipcode: string;
     country: string;
-    events: Event[] = [];
+    events: EventModel[] = [];
 
-    constructor(id: string, name: string, email: string, phoneNumber: string, notes: string, address: string, zipcode: string, country: string, events: Event[]){
+    constructor(id: string, name: string, email: string, phoneNumber: string, notes: string, address: string, zipcode: string, country: string, events: EventModel[]) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -23,4 +23,5 @@ export class Client{
         this.country = country;
         this.events = events;
     }
+
 }
