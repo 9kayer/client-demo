@@ -1,4 +1,8 @@
-<div class="container-fluid" id="page-wrapper">
+<div class="container" id="page-wrapper">
+
+  <div class="col-lg-12 text-right mb-3">
+    <button class="btn btn-outline-primary btn-md px-5" type="button">Back to Events</button>
+  </div>
 
   <div class="card">
     <div class="card-header">Details</div>
@@ -7,10 +11,6 @@
 
         <div class="form-row mb-3">
           <div class="col-lg-4">
-            <div class="form-row">
-              <label class="form-control-label">Id</label>
-              <p class="card-text">{{event.id}}</p>
-            </div>
 
             <div class="form-row">
               <label class="form-control-label">Name</label>
@@ -28,14 +28,14 @@
           <div class="col-lg-4">
             <div class="form-row">
               <label for="startDate">Start Date</label>
-              <input id="startDate" class="form-control" formControlName="startDate" [owlDateTimeTrigger]="startDatePicker" [owlDateTime]="startDatePicker"/>
-              <owl-date-time #startDatePicker></owl-date-time>
+              <input id="startDate" class="form-control" formControlName="startDate" [owlDateTimeTrigger]="startDatePicker" [owlDateTime]="startDatePicker" placeholder="{{startDate  | date}}"/>
+              <owl-date-time #startDatePicker [pickerType]="'calendar'"></owl-date-time>
             </div>
 
             <div class="form-row">
               <label for="endDate">End Date</label>
-              <input id="endDate" class="form-control" formControlName="endDate" [owlDateTimeTrigger]="endDatePicker" [owlDateTime]="endDatePicker"/>
-              <owl-date-time #endDatePicker></owl-date-time>
+              <input id="endDate" class="form-control" formControlName="endDate" [owlDateTimeTrigger]="endDatePicker" [owlDateTime]="endDatePicker" placeholder="{{endDate  | date}}"/>
+              <owl-date-time #endDatePicker [pickerType]="'calendar'"></owl-date-time>
             </div>
           </div>
 
@@ -65,7 +65,7 @@
 
         <div class="form-row">
           <div class="col-lg-12 text-right">
-            <button class="btn btn-primary btn-md px-5" type="submit">Update Event</button>
+            <button class="btn btn-success btn-md px-5" type="submit">Update Event</button>
           </div>
         </div>
       </form>

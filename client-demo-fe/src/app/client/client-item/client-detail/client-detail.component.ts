@@ -1,34 +1,29 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-
-import {Client} from 'src/app/model/client';
-import {ClientService} from '../service/client.service';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Client} from '../../../model/client';
+import {ActivatedRoute} from '@angular/router';
+import {ClientService} from '../../service/client.service';
 
 @Component({
-  selector: 'app-client-item',
-  templateUrl: './client-item.component.html',
-  styleUrls: ['./client-item.component.scss']
+  selector: 'app-client-detail',
+  templateUrl: './client-detail.component.html',
+  styleUrls: ['./client-detail.component.css']
 })
-export class ClientItemComponent implements OnInit {
+export class ClientDetailComponent implements OnInit {
 
-
-  clientEvents;
-  clientCompanies
+  @Input() data;
   clientForm: FormGroup;
   editMode = false;
   client: Client;
 
-  constructor(
-    private route: ActivatedRoute,
-    private clientService: ClientService
-  ) {
+  constructor(private route: ActivatedRoute,
+              private clientService: ClientService) {
   }
 
   ngOnInit() {
     this.getClient();
-
   }
+
 
   getClient() {
     this.route.params
@@ -70,5 +65,4 @@ export class ClientItemComponent implements OnInit {
 
     this.clientService.update(client).subscribe();
   }
-
 }

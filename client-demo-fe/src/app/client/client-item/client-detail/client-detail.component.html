@@ -1,0 +1,104 @@
+<div class="container" id="page-wrapper">
+
+  <div class="col-lg-12 text-right mb-3">
+    <button class="btn btn-outline-primary btn-md px-5" type="button">Back to Clients</button>
+  </div>
+
+  <div class="card">
+    <div class="card-header">Details</div>
+    <div class="card-body">
+
+      <form [formGroup]="clientForm" class="col-lg-12" *ngIf="clientForm" (submit)="onSubmit()">
+
+        <div class="form-row mb-3">
+          <div class="col-lg-4">
+            <div class="form-row">
+              <label class="form-control-label">Name</label>
+              <input type="text" class="form-control" placeholder="Enter name" formControlName="name">
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <div class="form-row">
+              <label class="form-control-label">Client Type : </label>
+              <div class="col-5">
+                <label for="typeOne" class="form-control-label">One</label>
+                <select id="typeOne" class="form-control">
+                  <option>TETS</option>
+                </select>
+              </div>
+              <div class="col-5">
+                <label for="typeTwo" class="form-control-label">Two</label>
+                <select id="typeTwo" class="form-control">
+                  <option>IDK</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row mb-3">
+          <div class="col-lg-4">
+            <label for="field" class="form-control-label">Field</label>
+            <select id="field" class="form-control">
+              <option></option>
+            </select>
+          </div>
+
+          <div class="col-lg-4">
+            <label class="form-control-label">Account</label>
+            <input type="text" class="form-control" placeholder="Enter Account" formControlName="account">
+          </div>
+        </div>
+
+
+        <div class="form-row mb-3">
+          <div class="col-lg-3">
+            <label class="form-control-label">NIF</label>
+            <input type="text" class="form-control" placeholder="Enter NIF" formControlName="nif">
+          </div>
+          <div class="col-lg-6">
+            <label class="form-control-label">Email</label>
+            <input type="email" class="form-control" placeholder="Enter email" formControlName="email">
+          </div>
+          <div class="col-lg-3">
+            <label class="form-control-label">Phone number</label>
+            <input type="text" class="form-control" placeholder="Enter phone number" formControlName="phoneNumber">
+          </div>
+        </div>
+
+
+        <div class="form-row mb-3">
+          <div class="col-lg-8">
+            <label class="form-control-label">Address</label>
+            <input type="text" class="form-control" placeholder="Enter Address" formControlName="address">
+          </div>
+        </div>
+
+        <div class="form-row mb-3">
+          <div class="col-lg-4">
+            <label class="form-control-label">Zipcode</label>
+            <input type="text" class="form-control" placeholder="Enter zipcode" formControlName="zipcode">
+          </div>
+
+          <div class="col-lg-4">
+            <label for="city" class="form-control-label">City</label>
+            <input id="city" type="text" class="form-control" placeholder="Enter City" formControlName="city">
+          </div>
+
+          <div class="col-lg-4">
+            <label class="form-control-label">Country</label>
+            <input type="text" class="form-control" placeholder="Enter Country" formControlName="country">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-lg-12 text-right">
+            <button class="btn btn-success btn-md px-5" type="submit">Update Client</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

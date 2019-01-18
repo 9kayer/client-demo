@@ -2,18 +2,21 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {EventService} from '../event.service';
 import {EventModel} from '../../model/event';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-event-item',
   templateUrl: './event-item.component.html',
-  styleUrls: ['./event-item.component.css']
+  styleUrls: ['./event-item.component.scss']
 })
 export class EventItemComponent implements OnInit {
 
   eventForm: FormGroup;
   event: EventModel;
   editMode = false;
+
+  startDate = new Date();
+  endDate = new Date();
 
   constructor(private route: ActivatedRoute,
               private eventService: EventService) {
@@ -35,8 +38,8 @@ export class EventItemComponent implements OnInit {
     this.eventForm = new FormGroup({
       'id': new FormControl(),
       'name': new FormControl(null),
-      'startDate': new FormControl(null),
-      'endDate': new FormControl(null),
+      'startDate': new FormControl(this.startDate),
+      'endDate': new FormControl(this.endDate),
       'location': new FormControl(null),
       'city': new FormControl(null),
       'country': new FormControl(null),
@@ -45,6 +48,8 @@ export class EventItemComponent implements OnInit {
 
     if (this.editMode) {
       this.eventForm.patchValue(this.event);
+      this.startDate = new Date(this.event.startDate * 1000);
+      this.endDate = new Date(this.event.endDate * 1000);
     }
   }
 

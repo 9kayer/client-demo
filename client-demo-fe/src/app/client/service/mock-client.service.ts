@@ -10,9 +10,9 @@ const eventList: EventModel[] = [
 ];
 
 const clientList: Client[] = [
-  new Client('1', 'One', 'email@mail.com', '123456789', 'the super 1notes that I need', ' 1th, other street, Somecity', '54611', 'Somecountry', eventList),
-  new Client('2', 'dois', 'email@mail.com', '123456789', 'the super 2notes that I need', ' 2th, other street, Somecity', '54611', 'Somecountry', eventList),
-  new Client('3', 'trois', 'email@mail.com', '123456789', 'the super 3notes that I need', ' 3th, other street, Somecity', '54611', 'Somecountry', eventList),
+  new Client('1', 'One', 'email@mail.com', '123456789', 'the super 1notes that I need', ' 1th, other street, Somecity', 'city', '54611', 'Somecountry', eventList),
+  new Client('2', 'dois', 'email@mail.com', '123456789', 'the super 2notes that I need', ' 2th, other street, Somecity', 'city', '54611', 'Somecountry', eventList),
+  new Client('3', 'trois', 'email@mail.com', '123456789', 'the super 3notes that I need', ' 3th, other street, Somecity', 'city', '54611', 'Somecountry', eventList),
 ];
 
 @Injectable({

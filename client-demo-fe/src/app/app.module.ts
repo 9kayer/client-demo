@@ -9,15 +9,15 @@ import {HomeComponent} from './home/home.component';
 import {ClientModule} from './client/client.module';
 import {HttpClientModule} from '@angular/common/http';
 import {EventModule} from './event/event.module';
-import {ReactiveFormsModule} from '@angular/forms';
-import {OWL_DATE_TIME_LOCALE, OwlDateTimeModule} from "ng-pick-datetime";
-import {OwlMomentDateTimeModule} from "ng-pick-datetime/date-time/adapter/moment-adapter/moment-date-time.module";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SharedModule} from './shared/shared.module';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    NavBarComponent
   ],
   imports: [
     NgbModule,
@@ -27,14 +27,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AppRoutingModule,
     HttpClientModule,
     EventModule,
-    ReactiveFormsModule,
-    OwlDateTimeModule,
-    OwlMomentDateTimeModule,
+    SharedModule
   ],
-  providers: [{
-    provide: OWL_DATE_TIME_LOCALE,
-    useValue: 'pt'
-  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

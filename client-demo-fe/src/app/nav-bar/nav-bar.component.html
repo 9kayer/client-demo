@@ -1,0 +1,22 @@
+<nav class="navbar navbar-toggler navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/"> <img [alt]="logo" [src]="loadLogo()"/></a>
+  <button class="navbar-toggler collapsed" type="button" (click)="navbarCollapsed = !navbarCollapsed" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbarTop"
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarTop">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/clients">Clients</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/events">Events</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>

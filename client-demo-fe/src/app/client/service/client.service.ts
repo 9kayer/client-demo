@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable, of} from 'rxjs';
 
-import { Client } from '../../model/client';
-import { EventModel } from '../../model/event';
+import {Client} from '../../model/client';
+import {EventModel} from '../../model/event';
 
 @Injectable({
   providedIn: 'root'
@@ -14,35 +14,27 @@ export class ClientService {
   baseURL = 'http://localhost:20001/api';
   clientURL = '/clients';
 
-  constructor(private http: HttpClient) { }
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+
+  constructor(private http: HttpClient) {
+  }
 
   get(id: string): Observable<Client> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
 
-    return this.http.get<Client>(this.baseURL + this.clientURL + '/' + id, httpOptions);
+    return this.http.get<Client>(this.baseURL + this.clientURL + '/' + id, this.httpOptions);
   }
 
   getAll(): Observable<Client[]> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
 
-    return this.http.get<Client[]>(this.baseURL + this.clientURL, httpOptions);
+    return this.http.get<Client[]>(this.baseURL + this.clientURL, this.httpOptions);
   }
 
   update(client: Client): Observable<Object> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
 
-    return this.http.put(this.baseURL + this.clientURL + '/' + client.id, client, httpOptions);
+    return this.http.patch(this.baseURL + this.clientURL + '/' + client.id, client, this.httpOptions);
   }
 }
