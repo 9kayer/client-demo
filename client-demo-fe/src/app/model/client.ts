@@ -2,19 +2,22 @@ import {EventModel} from './event';
 
 export class Client {
 
-  id: string;
+  id: number;
   name: string;
+  clientType: any[] = [];
   email: string;
-  phoneNumber: string;
+  phoneNumber: number;
   notes: string;
   address: string;
-  zipcode: string;
+  zipcode: number;
   city: string;
   country: string;
   events: EventModel[] = [];
+  province: string;
+  contacts;
+  nif: number;
 
-  constructor(id: string, name: string, email: string, phoneNumber: string, notes: string, address: string, city: string, zipcode: string, country: string, events: EventModel[]) {
-    this.id = id;
+  constructor(name: string, email: string, phoneNumber: number, notes: string, address: string, city: string, zipcode: number, country: string, province: string, nif: number) {
     this.name = name;
     this.email = email;
     this.phoneNumber = phoneNumber;
@@ -23,7 +26,28 @@ export class Client {
     this.zipcode = zipcode;
     this.city = city;
     this.country = country;
-    this.events = events;
+    this.province = province;
+    this.nif = nif;
+  }
+
+  addEvents(events: EventModel[]): Client {
+    this.events.push(...events);
+    return this;
+  }
+
+  addContacts(contacts): Client {
+    this.contacts = contacts;
+    return this;
+  }
+
+  addEvent(event: EventModel): Client {
+    this.events.push(event);
+    return this;
+  }
+
+  addClientTypes(clientType: []): Client {
+    this.clientType = clientType;
+    return this;
   }
 
 }

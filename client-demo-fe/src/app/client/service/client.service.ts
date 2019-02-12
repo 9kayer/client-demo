@@ -33,8 +33,12 @@ export class ClientService {
     return this.http.get<Client[]>(this.baseURL + this.clientURL, this.httpOptions);
   }
 
-  update(client: Client): Observable<Object> {
+  update(clientId, client: Client): Observable<Object> {
 
-    return this.http.patch(this.baseURL + this.clientURL + '/' + client.id, client, this.httpOptions);
+    return this.http.patch(this.baseURL + this.clientURL + '/' + clientId, client, this.httpOptions);
+  }
+
+  create(client: Client) {
+    return this.http.put(this.clientURL, client, this.httpOptions);
   }
 }

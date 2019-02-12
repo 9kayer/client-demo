@@ -17,12 +17,12 @@ export const CUSTOM_MOMENT_FORMATS = {
     CommonModule,
     ReactiveFormsModule,
     OwlDateTimeModule,
-    OwlMomentDateTimeModule,
+    OwlMomentDateTimeModule
   ],
   exports: [
     ReactiveFormsModule,
     OwlDateTimeModule,
-    OwlMomentDateTimeModule,
+    OwlMomentDateTimeModule
   ],
   providers: [
     {provide: OWL_DATE_TIME_FORMATS, useValue: CUSTOM_MOMENT_FORMATS}

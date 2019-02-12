@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Client} from '../../../model/client';
 import {ActivatedRoute} from '@angular/router';
 import {ClientService} from '../../service/client.service';
 
@@ -11,35 +10,22 @@ import {ClientService} from '../../service/client.service';
 })
 export class ClientDetailComponent implements OnInit {
 
-  @Input() data;
+  @Input() client;
   clientForm: FormGroup;
-  editMode = false;
-  client: Client;
+  editMode: boolean;
+
 
   constructor(private route: ActivatedRoute,
               private clientService: ClientService) {
   }
 
   ngOnInit() {
-    this.getClient();
-  }
-
-
-  getClient() {
-    this.route.params
-      .subscribe(params => {
-        this.clientService.get(params['id']).subscribe((client: Client) => {
-            this.client = client;
-            this.editMode = true;
-            this.initForm();
-          }
-        );
-      });
+    this.editMode = this.client !== null;
+    this.initForm();
   }
 
   initForm() {
     this.clientForm = new FormGroup({
-      'id': new FormControl(null),
       'name': new FormControl(null),
       'email': new FormControl(null, [Validators.email]),
       'phoneNumber': new FormControl(null, [Validators.email]),
@@ -50,8 +36,8 @@ export class ClientDetailComponent implements OnInit {
       'nif': new FormControl(null, [Validators.max(9)]),
       'province': new FormControl(null),
       'site': new FormControl(null),
-      'account': new FormControl()
-
+      'account': new FormControl(),
+      'notes': new FormControl()
     });
 
     if (this.editMode) {
@@ -60,9 +46,8 @@ export class ClientDetailComponent implements OnInit {
   }
 
   onSubmit() {
-
     const client = this.clientForm.getRawValue();
 
-    this.clientService.update(client).subscribe();
+    this.editMode ? this.clientService.update(this.client.id, client).subscribe() : this.clientService.create(client).subscribe();
   }
 }

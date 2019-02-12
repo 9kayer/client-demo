@@ -10,9 +10,9 @@ const eventList: EventModel[] = [
 ];
 
 const clientList: Client[] = [
-  new Client('1', 'One', 'email@mail.com', '123456789', 'the super 1notes that I need', ' 1th, other street, Somecity', 'city', '54611', 'Somecountry', eventList),
-  new Client('2', 'dois', 'email@mail.com', '123456789', 'the super 2notes that I need', ' 2th, other street, Somecity', 'city', '54611', 'Somecountry', eventList),
-  new Client('3', 'trois', 'email@mail.com', '123456789', 'the super 3notes that I need', ' 3th, other street, Somecity', 'city', '54611', 'Somecountry', eventList),
+  new Client('One', 'email@mail.com', 123456789, 'the super 1notes that I need', ' 1th, other street, Somecity', 'city', 54611, 'Somecountry', 'province', 123456789),
+  new Client('dois', 'email@mail.com', 123456789, 'the super 2notes that I need', ' 2th, other street, Somecity', 'city', 54611, 'Somecountry', 'province', 123456789),
+  new Client('trois', 'email@mail.com', 123456789, 'the super 3notes that I need', ' 3th, other street, Somecity', 'city', 54611, 'Somecountry', 'province', 123456789),
 ];
 
 @Injectable({
@@ -22,11 +22,6 @@ const clientList: Client[] = [
 export class MockClientService {
 
   constructor() {
-  }
-
-  get(id: string): Observable<Client> {
-    const client: Client = clientList.find(c => c.id === id);
-    return of(client);
   }
 
   getAll(): Observable<Client[]> {

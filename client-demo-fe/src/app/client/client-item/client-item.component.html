@@ -1,6 +1,6 @@
-<app-client-detail [data]="client"></app-client-detail>
-<div *ngIf="clientEvents">
-  <app-client-events [events]="clientEvents"></app-client-events>
+<app-client-detail [client]="client"></app-client-detail>
+<div *ngIf="client.events">
+  <app-client-events [events]="client.events"></app-client-events>
 </div>
 
 <div *ngIf="clientCompanies">
